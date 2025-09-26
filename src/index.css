@@ -1,0 +1,104 @@
+/* Global Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Layout */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #f9fafb;
+  color: #111827;
+  line-height: 1.6;
+  margin: 0;
+  padding: 16px;
+}
+
+/* Header */
+.topbar {
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 20px;
+  padding: 12px 0;
+  text-align: center;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.logo a {
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.3px;
+}
+
+/* Content */
+.content { max-width: 900px; margin: 0 auto; padding: 0 12px; }
+h1, h2 { margin-bottom: 12px; font-weight: 700; color: #1f2937; }
+p { margin-bottom: 12px; }
+
+/* Links */
+a { color: #2563eb; transition: color 0.2s; }
+a:hover { color: #1d4ed8; text-decoration: underline; }
+.subject-list { list-style: none; padding: 0; }
+.subject-list li { margin: 10px 0; }
+
+/* Accordion */
+.acc {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform 0.15s ease;
+}
+.acc:hover { transform: translateY(-2px); }
+.acc-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  padding: 14px 16px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+.acc-arrow {
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+.acc-arrow.open { transform: rotate(90deg); }
+.acc-title { font-weight: 600; font-size: 15px; color: #111827; }
+.acc-sub { font-size: 13px; color: #6b7280; margin-top: 2px; }
+
+/* Accordion body animation */
+.acc-body-wrapper {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.acc-body {
+  padding: 14px 18px;
+  border-top: 1px solid #f3f4f6;
+  font-size: 14px;
+}
+
+/* Code Blocks */
+pre {
+  background: #111827;
+  color: #f9fafb;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  overflow-x: auto;
+}
+pre code { font-family: "Courier New", monospace; }
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  body { font-size: 15px; padding: 12px; }
+  .logo a { font-size: 18px; }
+  .acc-title { font-size: 14px; }
+  pre { font-size: 12px; padding: 10px; }
+}
