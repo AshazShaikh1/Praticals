@@ -121,6 +121,88 @@ public class Car {
     }
 }`}</code></pre>
       </Accordion>
+        
+      <Accordion title="Create a program to accept student data using oop create public void accept and display.">
+        <p><strong>Aim:</strong>Create a program to accept student data using oop create public void accept and display.</p>
+
+        <pre><code>{`
+import java.util.Scanner;
+
+class Student {
+    int rollNo;
+    String name;
+    int marks;
+
+    // Method to accept student data
+    public void accept() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Roll No: ");
+        rollNo = sc.nextInt();
+        sc.nextLine(); // consume newline
+        System.out.print("Enter Name: ");
+        name = sc.nextLine();
+        System.out.print("Enter Marks: ");
+        marks = sc.nextInt();
+    }
+
+    // Method to display student data
+    public void display() {
+        System.out.println("/n--- Student Details ---");
+        System.out.println("Roll No: " + rollNo);
+        System.out.println("Name: " + name);
+        System.out.println("Marks: " + marks);
+    }
+}
+
+public class StudentDemo {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        s1.accept();   // Accept data
+        s1.display();  // Display data
+    }
+}
+        `}</code></pre>
+      </Accordion>
+
+      <Accordion title="Write a program in Java to accept the radius of a circle and display its area. Use a private method to calculate the area. Demonstrate how private methods cannot be accessed directly outside the class.">
+        <p>Write a program in Java to accept the radius of a circle and display its area. Use a private method to calculate the area. Demonstrate how private methods cannot be accessed directly outside the class.</p>
+
+        <pre><code>{`
+java.util.Scanner;
+
+class Circle {
+    double radius;
+
+    // Method to accept radius
+    public void accept() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Radius: ");
+        radius = sc.nextDouble();
+    }
+
+    // Private method to calculate area
+    private double area() {
+        return 3.14159 * radius * radius;
+    }
+
+    // Public method to display area (works correctly)
+    public void displayArea() {
+        System.out.println("Area of Circle: " + area());
+    }
+}
+
+public class CircleDemo {
+    public static void main(String[] args) {
+        Circle c1 = new Circle();
+        c1.accept();
+        c1.displayArea();
+
+        //  This line will give error because 'area()' is private
+        // System.out.println("Trying to call private method: " + c1.area());
+    }
+}
+        `}</code></pre>
+      </Accordion>
 
       <p style={{marginTop:16}}>— End of Java practicals (extracted/transcribed).</p>
     </div>
