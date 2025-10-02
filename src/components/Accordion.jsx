@@ -1,21 +1,22 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, memo } from "react";
 
-export default function Accordion({ title, subtitle, children }) {
+function AccordionComponent({ title, children }) { // Removed subtitle as it's unused
   const [open, setOpen] = useState(false);
   const [height, setHeight] = useState("0px");
   const contentRef = useRef(null);
 
   useEffect(() => {
+    // Recalculate height whenever content changes or accordion opens/closes
     setHeight(open ? `${contentRef.current.scrollHeight}px` : "0px");
-  }, [open]);
+  }, [open, children]); // Added children dependency
 
   return (
-    <div className="acc">
-      <button className="acc-header" onClick={() => setOpen(!open)}>
+    <div className={`acc ${open ? 'acc-open' : ''}`}>
+      <button type="button" className="acc-header" onClick={() => setOpen(!open)}>
         <span className={`acc-arrow ${open ? "open" : ""}`}>▶</span>
         <div>
           <div className="acc-title">{title}</div>
-          {subtitle && <div className="acc-sub">{subtitle}</div>}
+          {/* Removed subtitle display */}
         </div>
       </button>
       <div
@@ -28,3 +29,5 @@ export default function Accordion({ title, subtitle, children }) {
     </div>
   );
 }
+
+export default memo(AccordionComponent);
